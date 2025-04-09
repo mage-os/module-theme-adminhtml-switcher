@@ -13,7 +13,8 @@
   ],
   "require": {
     "magento/framework": "^103.0",
-    "mage-os/theme-adminhtml-m137": "^1.0"
+    "magento/module-backend": "^102.0",
+    "magento/module-config": "^101.0"
   },
   "autoload": {
     "files": [
