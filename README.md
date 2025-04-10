@@ -7,7 +7,7 @@ This module enables M137 Admin Theme for Mage-OS. This is a companion module to 
 ## Installation
 
 ```
-composer require mage-os/theme-adminhtml-m137
+composer require mage-os/module-theme-adminhtml-switcher
 bin/magento module:enable MageOS_ThemeAdminhtmlSwitcher
 bin/magento setup:upgrade
 ```
