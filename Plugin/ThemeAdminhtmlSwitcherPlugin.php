@@ -27,14 +27,19 @@ class ThemeAdminhtmlSwitcherPlugin
      *
      * @param Design $subject
      * @param string|null $themeId
+     * @param string|null $area
      * @return array
      */
-    public function beforeSetDesignTheme(Design $subject, $themeId = null)
+    public function beforeSetDesignTheme(Design $subject, $themeId = null, $area = null)
     {
-        if ($subject->getArea() !== Area::AREA_ADMINHTML) {
-            return [$themeId];
+        if ($area !== null && $area !== Area::AREA_ADMINHTML) {
+            return [$themeId, $area];
         }
-        
+
+        if ($subject->getArea() !== Area::AREA_ADMINHTML) {
+            return [$themeId, $area];
+        }
+
         $isEnabled = $this->scopeConfig->isSetFlag(
             'admin/system_admin_design/enable_theme_adminhtml_m137',
             ScopeConfigInterface::SCOPE_TYPE_DEFAULT
@@ -44,6 +49,6 @@ class ThemeAdminhtmlSwitcherPlugin
             $themeId = 'MageOS/m137-admin-theme';
         }
 
-        return [$themeId];
+        return [$themeId, $area];
     }
 }
