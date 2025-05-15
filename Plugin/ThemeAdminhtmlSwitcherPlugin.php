@@ -3,13 +3,12 @@
 namespace MageOS\ThemeAdminhtmlSwitcher\Plugin;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Theme\Model\View\Design;
 use Magento\Framework\App\Area;
 
 class ThemeAdminhtmlSwitcherPlugin
 {
-    private $scopeConfig;
+    private ScopeConfigInterface $scopeConfig;
 
     /**
      * ThemeAdminhtmlSwitcherPlugin constructor.

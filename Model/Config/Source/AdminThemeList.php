@@ -10,11 +10,21 @@ class AdminThemeList implements OptionSourceInterface
 {
     private ThemeList $themeList;
 
+    /**
+     * AdminThemeList constructor.
+     *
+     * @param ThemeList $themeList
+     */
     public function __construct(ThemeList $themeList)
     {
         $this->themeList = $themeList;
     }
 
+    /**
+     * Get a list of all installed adminhtml themes.
+     *
+     * @return array
+     */
     public function toOptionArray(): array
     {
         $themes = [];
