@@ -4,7 +4,7 @@
     <default>
         <admin>
             <system_admin_design>
-                <enable_theme_adminhtml_m137>1</enable_theme_adminhtml_m137>
+                <active_theme>MageOS/m137-admin-theme</active_theme>
             </system_admin_design>
         </admin>
     </default>
