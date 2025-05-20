@@ -3,13 +3,12 @@
 namespace MageOS\ThemeAdminhtmlSwitcher\Plugin;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Store\Model\ScopeInterface;
 use Magento\Theme\Model\View\Design;
 use Magento\Framework\App\Area;
 
 class ThemeAdminhtmlSwitcherPlugin
 {
-    private $scopeConfig;
+    private ScopeConfigInterface $scopeConfig;
 
     /**
      * ThemeAdminhtmlSwitcherPlugin constructor.
@@ -40,15 +39,11 @@ class ThemeAdminhtmlSwitcherPlugin
             return [$themeId, $area];
         }
 
-        $isEnabled = $this->scopeConfig->isSetFlag(
-            'admin/system_admin_design/enable_theme_adminhtml_m137',
+        $activeTheme = $this->scopeConfig->getValue(
+            'admin/system_admin_design/active_theme',
             ScopeConfigInterface::SCOPE_TYPE_DEFAULT
         );
-
-        if ($isEnabled) {
-            $themeId = 'MageOS/m137-admin-theme';
-        }
-
-        return [$themeId, $area];
+        
+        return [$activeTheme ?? $themeId, $area];
     }
 }

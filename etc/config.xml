@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/config_file.xsd">
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <admin>
             <system_admin_design>
-                <enable_theme_adminhtml_m137>1</enable_theme_adminhtml_m137>
+                <active_theme>MageOS/m137-admin-theme</active_theme>
             </system_admin_design>
         </admin>
     </default>
