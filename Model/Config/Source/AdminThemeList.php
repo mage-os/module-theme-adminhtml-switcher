@@ -34,7 +34,10 @@ class AdminThemeList implements OptionSourceInterface
             $path = $theme->getData('theme_path');
 
             // Replace default admin theme title as 'Magento 2 backend' is not user friendly
-            $title = ($path === 'Magento/backend') ? (string) __('Magento Default') : $theme->getData('theme_title');
+            $title = $theme->getData('theme_title');
+            if ($path === 'Magento/backend') {
+                $title = (string)__('Magento Default');
+            }
 
             $themes[$title] = [
                 'label' => $title . ' (' . $path . ')',
