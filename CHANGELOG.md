@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
-- New system configuration option to chose and select the active admin theme from those installed
+- New system configuration option that allows selection of the active admin theme from those installed
 
 ### Changed
 
