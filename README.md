@@ -2,9 +2,11 @@
 
 ## Features
 
-This module enables M137 Admin Theme for Mage-OS. This is a companion module to the [mage-os/theme-adminhtml-m137](https://github.com/mage-os-lab/theme-adminhtml-m137)
+This module enables M137 Admin Theme for Mage-OS and allows admin users to select the active admin theme via configuration. This is a companion module to the [mage-os/theme-adminhtml-m137](https://github.com/mage-os-lab/theme-adminhtml-m137)
 
 ## Installation
+
+This module is included as part of Mage-OS M137 Admin Theme ([mage-os/theme-adminhtml-m137](https://github.com/mage-os-lab/theme-adminhtml-m137)) and is recommended to be installed via the theme package. Individual installation instructions are provided below, if needed:
 
 ```
 composer require mage-os/module-theme-adminhtml-switcher
@@ -30,7 +32,7 @@ Stores > | Settings | Configuration > Advanced > Admin > Admin Design
 ```
 
 ```
-Enable M137 Admin Theme: Yes / No
+Active Admin Theme: select the desired theme from those installed
 ```
 
 ## Changelog
