@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-04-21
+
+### Changed
+
+- PHP 8.4 and 8.5 compatibility: typed parameters and properties, explicit nullable types, typed class constants
+- `composer.json` now declares PHP `~8.2.0||~8.3.0||~8.4.0||~8.5.0`
+
 ## [1.2.0] - 2025-06-10
 
 ### Added

@@ -8,11 +8,11 @@ use Magento\Framework\View\Design\Theme\ThemeList;
 
 class AdminThemeList implements OptionSourceInterface
 {
-    private ThemeList $themeList;
+    protected const DEFAULT_ADMIN_THEME_PATH = 'Magento/backend';
+
+    protected ThemeList $themeList;
 
     /**
-     * AdminThemeList constructor.
-     *
      * @param ThemeList $themeList
      */
     public function __construct(ThemeList $themeList)
@@ -21,8 +21,6 @@ class AdminThemeList implements OptionSourceInterface
     }
 
     /**
-     * Get a list of all installed adminhtml themes.
-     *
      * @return array
      */
     public function toOptionArray(): array
@@ -32,20 +30,17 @@ class AdminThemeList implements OptionSourceInterface
 
         foreach ($this->themeList->getItems() as $theme) {
             $path = $theme->getData('theme_path');
-
-            // Replace default admin theme title as 'Magento 2 backend' is not user friendly
-            $title = $theme->getData('theme_title');
-            if ($path === 'Magento/backend') {
-                $title = (string)__('Magento Default');
-            }
+            $title = $path === self::DEFAULT_ADMIN_THEME_PATH
+                ? (string)__('Magento Default')
+                : $theme->getData('theme_title');
 
             $themes[$title] = [
                 'label' => $title . ' (' . $path . ')',
-                'value' => $path
+                'value' => $path,
             ];
         }
 
-        ksort($themes); // Sort themes alphabetically
+        ksort($themes);
 
         return $themes;
     }

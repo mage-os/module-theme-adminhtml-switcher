@@ -2,17 +2,17 @@
 
 namespace MageOS\ThemeAdminhtmlSwitcher\Plugin;
 
+use Magento\Framework\App\Area;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Theme\Model\View\Design;
-use Magento\Framework\App\Area;
 
 class ThemeAdminhtmlSwitcherPlugin
 {
-    private ScopeConfigInterface $scopeConfig;
+    protected const XML_PATH_ACTIVE_THEME = 'admin/system_admin_design/active_theme';
+
+    protected ScopeConfigInterface $scopeConfig;
 
     /**
-     * ThemeAdminhtmlSwitcherPlugin constructor.
-     *
      * @param ScopeConfigInterface $scopeConfig
      */
     public function __construct(
@@ -22,14 +22,12 @@ class ThemeAdminhtmlSwitcherPlugin
     }
 
     /**
-     * Before method for setting backend area design theme.
-     *
      * @param Design $subject
-     * @param string|null $themeId
+     * @param mixed $themeId
      * @param string|null $area
      * @return array
      */
-    public function beforeSetDesignTheme(Design $subject, $themeId = null, $area = null)
+    public function beforeSetDesignTheme(Design $subject, mixed $themeId = null, ?string $area = null): array
     {
         if ($area !== null && $area !== Area::AREA_ADMINHTML) {
             return [$themeId, $area];
@@ -40,10 +38,10 @@ class ThemeAdminhtmlSwitcherPlugin
         }
 
         $activeTheme = $this->scopeConfig->getValue(
-            'admin/system_admin_design/active_theme',
+            self::XML_PATH_ACTIVE_THEME,
             ScopeConfigInterface::SCOPE_TYPE_DEFAULT
         );
-        
+
         return [$activeTheme ?? $themeId, $area];
     }
 }
